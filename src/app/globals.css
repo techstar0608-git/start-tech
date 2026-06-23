@@ -21,7 +21,7 @@
   --font-display: var(--font-host-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif;
 
-  --animate-marquee: marquee 26s linear infinite;
+  --animate-marquee: marquee 45s linear infinite;
   --animate-spin-slow: spin 22s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
 }
