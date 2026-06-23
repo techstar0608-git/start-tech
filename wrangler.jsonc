@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // IMPORTANT: this must match the existing Worker's name in the Cloudflare dashboard.
+  "name": "start-tech",
+  "compatibility_date": "2026-06-23",
+  // Serve the Next.js static export from `out/` as an assets-only Worker (no script needed).
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
