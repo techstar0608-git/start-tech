@@ -7,5 +7,12 @@
   "assets": {
     "directory": "./out",
     "not_found_handling": "404-page"
-  }
+  },
+  // Bind the production domain to this Worker. Each deploy claims these hostnames
+  // and provisions SSL automatically. Requires the conflicting DNS records (the
+  // old Hostinger A/CNAME) and the old `*.starmartech.com/*` route to be removed first.
+  "routes": [
+    { "pattern": "starmartech.com", "custom_domain": true },
+    { "pattern": "www.starmartech.com", "custom_domain": true }
+  ]
 }
