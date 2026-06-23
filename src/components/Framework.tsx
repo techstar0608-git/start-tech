@@ -232,10 +232,10 @@ export function Framework() {
       <div className="mx-auto max-w-3xl">
         <h2 id="framework-heading" className="type-h1">
           <span className="block text-gradient-blue">A framework</span>
-          <span className="block pl-[1.3em] text-[0.72em] leading-tight text-ink">
+          <span className="block text-[0.72em] leading-tight text-ink">
             not a
           </span>
-          <span className="block pl-[1.3em] text-[0.72em] leading-tight text-ink">
+          <span className="block text-[0.72em] leading-tight text-ink">
             guessing game
           </span>
         </h2>

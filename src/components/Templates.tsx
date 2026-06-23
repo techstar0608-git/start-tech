@@ -3,7 +3,7 @@ import { PhotoCarousel } from "./PhotoCarousel";
 
 const templates = [
   { src: "/images/tpl-1.png", alt: "Nail salon website template" },
-  { src: "/images/tpl-2.png", alt: "Beauty spa website template" },
+  { src: "/images/tpl-2.png", alt: "Headspa website template" },
   { src: "/images/tpl-3.png", alt: "Food & drink website template" },
 ];
 
@@ -59,9 +59,11 @@ export function Templates() {
         <div className="mt-12">
           <PhotoCarousel
             photos={templates}
-            containerClass="h-[26rem]"
-            cardClass="h-[25rem] w-[60%] max-w-[15rem]"
-            imageSizes="(max-width: 768px) 60vw, 240px"
+            containerClass="h-[30rem]"
+            cardClass="aspect-[71/100] w-[72%] max-w-[18rem]"
+            imageSizes="(max-width: 768px) 72vw, 288px"
+            fit="contain"
+            chrome={false}
           />
         </div>
 

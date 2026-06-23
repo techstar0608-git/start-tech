@@ -17,11 +17,15 @@ export function PhotoCarousel({
   containerClass = "h-56",
   cardClass = "h-48 w-[74%]",
   imageSizes = "(max-width: 768px) 74vw, 320px",
+  fit = "cover",
+  chrome = true,
 }: {
   photos: Photo[];
   containerClass?: string;
   cardClass?: string;
   imageSizes?: string;
+  fit?: "cover" | "contain";
+  chrome?: boolean;
 }) {
   const [rot, setRot] = useState(0);
   useEffect(() => {
@@ -35,7 +39,9 @@ export function PhotoCarousel({
         return (
           <div
             key={p.src}
-            className={`absolute inset-0 m-auto overflow-hidden rounded-2xl border border-white/10 shadow-2xl transition-all duration-700 ease-out ${cardClass}`}
+            className={`absolute inset-0 m-auto overflow-hidden transition-all duration-700 ease-out ${
+              chrome ? "rounded-2xl border border-white/10 shadow-2xl" : ""
+            } ${cardClass}`}
             style={{
               transform: slot.transform,
               opacity: slot.opacity,
@@ -47,7 +53,7 @@ export function PhotoCarousel({
               alt={p.alt}
               fill
               sizes={imageSizes}
-              className="object-cover"
+              className={fit === "contain" ? "object-contain" : "object-cover"}
             />
           </div>
         );
