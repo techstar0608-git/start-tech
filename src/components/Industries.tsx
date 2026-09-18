@@ -50,18 +50,20 @@ const slides = [industries[COUNT - 1], ...industries, industries[0]];
 function Card({ item }: { item: (typeof industries)[number] }) {
   return (
     <article
-      className="relative rounded-[28px] p-px"
+      className="relative h-full rounded-[28px] p-px"
       style={{
         background:
           "linear-gradient(135deg, rgba(91,231,255,0.65), rgba(91,231,255,0.06) 32%, rgba(255,255,255,0.05) 68%, rgba(91,231,255,0.3))",
       }}
     >
-      <div className="rounded-[27px] bg-[#0a1430] p-5">
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="min-w-0 flex-1 font-sans text-[clamp(1.5rem,7.4vw,1.83rem)] font-bold capitalize leading-tight text-[#5BE7FF]">
+      <div className="flex h-full flex-col rounded-[27px] bg-[#0a1430] p-5">
+        {/* fixed two-line header block so every card's image starts at the
+            same y and all cards end up the same height */}
+        <div className="flex min-h-[3.4em] items-start justify-between gap-3">
+          <h3 className="min-w-0 flex-1 font-sans text-[clamp(1.375rem,6.4vw,1.6rem)] font-bold capitalize leading-tight text-[#5BE7FF]">
             {item.title}
           </h3>
-          <p className="w-2/5 shrink-0 wrap-break-word pt-1 text-right text-base leading-snug tracking-[0.04em] text-white/90">
+          <p className="w-2/5 shrink-0 wrap-break-word pt-1 text-right text-sm leading-snug tracking-[0.04em] text-white/90">
             {item.blurb}
           </p>
         </div>
@@ -71,7 +73,7 @@ function Card({ item }: { item: (typeof industries)[number] }) {
             alt={item.alt}
             width={530}
             height={396}
-            className="h-auto w-full object-cover"
+            className="aspect-4/3 w-full object-cover"
           />
         </div>
       </div>
@@ -154,7 +156,7 @@ export function Industries() {
           onPointerCancel={onPointerUp}
         >
           <div
-            className="flex"
+            className="flex items-stretch"
             onTransitionEnd={settle}
             style={{
               transform: `translateX(calc(${-pos * 100}% + ${dragX}px))`,

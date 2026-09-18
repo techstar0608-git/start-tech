@@ -1,10 +1,10 @@
 const items = [
   "WEBSITES",
-  "SCRIPTS",
+  "SOCIAL",
+  "ADVERTISING",
   "AUTOMATION",
   "BRANDING",
-  "ADS",
-  "GROW",
+  "SALES",
 ];
 
 // repeat the words enough times that a single track is wider than any

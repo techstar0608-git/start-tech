@@ -28,7 +28,7 @@ function OrbitBadge() {
           letterSpacing="3"
         >
           <textPath href="#orbit" startOffset="0">
-            AUTOMATE • GROW • SCALE • AUTOMATE • GROW • SCALE •&nbsp;
+            AUTOMATE • GROW • SCALE • AUTOMATE • GROW • SCALE •
           </textPath>
         </text>
       </svg>
