@@ -22,13 +22,17 @@ function OrbitBadge() {
             d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"
           />
         </defs>
-        <text
-          className="fill-white font-display"
-          fontSize="13"
-          letterSpacing="3"
-        >
-          <textPath href="#orbit" startOffset="0">
-            AUTOMATE • GROW • SCALE • AUTOMATE • GROW • SCALE •
+        <text className="fill-white font-display" fontSize="13">
+          {/* textLength = full circumference (2*pi*78) so exactly one loop of
+              the phrase wraps the ring; without it the string overflows the
+              path and the clipped seam reads as "SCALAUTOMATE" */}
+          <textPath
+            href="#orbit"
+            startOffset="0"
+            textLength="490"
+            lengthAdjust="spacing"
+          >
+            AUTOMATE • GROW • SCALE •
           </textPath>
         </text>
       </svg>
