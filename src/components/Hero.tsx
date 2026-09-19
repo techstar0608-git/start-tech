@@ -17,22 +17,30 @@ function OrbitBadge() {
         aria-hidden="true"
       >
         <defs>
+          {/* r=70 -> circumference ~440, sized so one loop of the phrase
+              wraps the ring at natural letter spacing, clear of the star */}
           <path
             id="orbit"
-            d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"
+            d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0"
           />
         </defs>
-        <text className="fill-white font-display" fontSize="13">
-          {/* textLength = full circumference (2*pi*78) so exactly one loop of
-              the phrase wraps the ring; without it the string overflows the
-              path and the clipped seam reads as "SCALAUTOMATE" */}
+        <text
+          className="fill-white font-display"
+          fontSize="12"
+          letterSpacing="1.5"
+        >
+          {/* textLength pins the phrase to exactly one full loop so the seam
+              never clips (which used to read as "SCALAUTOMATE"); at r=70 this
+              is only a light adjustment, so spacing stays natural.
+              Doubled en-spaces around each bullet: letterSpacing alone applies
+              evenly and leaves the dots crowding the words. */}
           <textPath
             href="#orbit"
             startOffset="0"
-            textLength="490"
+            textLength="440"
             lengthAdjust="spacing"
           >
-            AUTOMATE • GROW • SCALE •
+            {"AUTOMATE\u2002\u2002•\u2002\u2002GROW\u2002\u2002•\u2002\u2002SCALE\u2002\u2002•\u2002\u2002"}
           </textPath>
         </text>
       </svg>
