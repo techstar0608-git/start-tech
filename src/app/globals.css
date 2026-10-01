@@ -22,9 +22,21 @@
     var(--font-host-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif;
 
+  /* "Pantry" website-style template (/templates/pantry) */
+  --color-pantry-cream: #fbf1e6;
+  --color-pantry-wine: #6b1d2a;
+  --color-pantry-orange: #e4572e;
   --animate-marquee: marquee 100s linear infinite;
   --animate-spin-slow: spin 22s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
+}
+
+/* inline: the font faces are only defined on the template's wrapper, so the
+   utilities must reference them directly rather than through :root */
+@theme inline {
+  --font-pantry-serif: var(--font-pantry-serif-face), Georgia, serif;
+  --font-pantry-sans:
+    var(--font-pantry-sans-face), ui-sans-serif, system-ui, sans-serif;
 }
 
 @keyframes marquee {
@@ -155,5 +167,28 @@ body {
   .reveal,
   [class*="animate-"] {
     animation: none !important;
+  }
+}
+
+/* Pantry template: hovering a jar spins its label around the glass.
+   One full turn = the label strip length (2π × 78 units = 245.044cqw). */
+@keyframes pantry-label-spin {
+  to {
+    transform: translateX(-245.044cqw);
+  }
+}
+
+.pantry-label-strip {
+  animation: pantry-label-spin 7s linear infinite paused;
+}
+
+.pantry-jar:hover .pantry-label-strip,
+.group:hover .pantry-jar .pantry-label-strip {
+  animation-play-state: running;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pantry-label-strip {
+    animation: none;
   }
 }

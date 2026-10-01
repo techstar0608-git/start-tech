@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { PhotoCarousel } from "./PhotoCarousel";
 
 const templates = [
@@ -68,12 +69,12 @@ export function Templates() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <a
-            href="#contact"
+          <Link
+            href="/templates"
             className="inline-flex items-center gap-2 rounded-full border border-brand-purple/50 bg-brand-purple/10 px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-brand-purple/20"
           >
             Explore website styles <span>→</span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
