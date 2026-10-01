@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Globe } from "./Globe";
 import { StarMark } from "./StarMark";
 
 function OrbitBadge() {
@@ -90,31 +91,10 @@ export function Hero() {
         {/* 2 — Star badge */}
         <OrbitBadge />
 
-        {/* 3 — Dotted globe, built exactly like Figma (node 25:14):
-              base dotted globe + a color-dodge glow arc, over a dark backing
-              so the blue background doesn't wash it out. */}
-        <div className="relative -mt-4 w-full">
-          <div className="relative mx-auto w-full max-w-md scale-120">
-            <Image
-              src="/images/globe-base-v2.png"
-              alt=""
-              aria-hidden="true"
-              width={2000}
-              height={1111}
-              priority
-              className="h-auto w-full"
-            />
-            {/* glowing rim arc (Figma color-dodge glow, baked into a clean sprite) */}
-            <Image
-              src="/images/globe-glow-v3.png"
-              alt=""
-              aria-hidden="true"
-              width={2000}
-              height={1111}
-              priority
-              className="absolute left-1/2 top-[9%] w-[77.5%] -translate-x-1/2 opacity-40"
-            />
-          </div>
+        {/* 3 — Interactive 3D dotted globe (cobe / WebGL): auto-spins,
+              drag or swipe to rotate, centred on Australia */}
+        <div className="relative -mt-6 w-full">
+          <Globe className="mx-auto w-full max-w-md" />
         </div>
 
         {/* 4 — Description block, below the globe (no overlap) */}
